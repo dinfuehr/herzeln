@@ -3,7 +3,7 @@
 
   <p ng-if="players.length == 0">Noch kein Spieler angelegt</p>
 
-  <p ng-repeat="player in players track by $index">{{player}} <button type="button" class="close" ng-click="removePlayer(player)">&times;</button></p>
+  <p ng-repeat="player in players">{{player}} <button type="button" class="close" ng-click="removePlayer(player)">&times;</button></p>
 
   <p>Spielername: <input type="text" ng-model="name"></p>
   <button type="button" class="btn btn-primary" ng-click="addPlayer()">+ Spieler</button>

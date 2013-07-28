@@ -5,17 +5,10 @@ gameApp.factory( 'playerService', function( ) {
   var players = [];
 
   if( window.localStorage ) {
-    var tmp;
-
-    try {
-      tmp = JSON.parse( window.localStorage.players );
-    } catch( e ) {
-      tmp = null;
-    }
+    var tmp = JSON.parse( window.localStorage.players );
 
     if( angular.isArray( tmp ) ) {
       players = tmp;
-      console.log( players );
     }
   }
 
@@ -33,6 +26,8 @@ gameApp.factory( 'playerService', function( ) {
 
     } else {
       players.push( name );
+      playersChanged( );
+
       return true;
     }
   }
@@ -43,6 +38,8 @@ gameApp.factory( 'playerService', function( ) {
     if( ind >= 0 ) {
       players.splice( ind, 1 );
     }
+
+    playersChanged( );
   }
 
   return service;
