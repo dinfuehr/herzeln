@@ -72,7 +72,6 @@ function PlayerCtrl( $scope, playerService ) {
 
   $scope.removePlayer = function( name ) {
     playerService.removePlayer( name );
-    console.log( "delete name = " + name );
   }
 }
 
