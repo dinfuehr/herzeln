@@ -1,4 +1,8 @@
 <div class="container">
   <h1>Das Spiel</h1>
 
+  <p ng-repeat="player in players">{{player}}</p>
+  <p ng-repeat="game in games">{{game}}</p>
+
+  <button type="button" class="btn btn-primary" ng-click="addGame()">+ Spiel</button>
 </div>

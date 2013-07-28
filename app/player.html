@@ -1,12 +1,12 @@
 <div class="container">
   <h1>Spieler anlegen</h1>
 
-  <p ng-if="{{players.length == 0}}">Noch kein Spieler angelegt</p>
+  <p ng-if="players.length == 0">Noch kein Spieler angelegt</p>
 
-  <p ng-repeat="player in players">{{player}}</p>
+  <p ng-repeat="player in players track by $index">{{player}} <button type="button" class="close" ng-click="removePlayer(player)">&times;</button></p>
 
   <p>Spielername: <input type="text" ng-model="name"></p>
   <button type="button" class="btn btn-primary" ng-click="addPlayer()">+ Spieler</button>
 
-  <a href="#/game" class="btn btn-success" ng-click="startGame()">Spiel starten</a>
+  <a href="#/game" class="btn btn-success">Spiel starten</a>
 </div>
