@@ -1,8 +1,42 @@
 <div class="container">
   <h1>Das Spiel</h1>
 
-  <p ng-repeat="player in players">{{player}}</p>
-  <p ng-repeat="game in games">{{game}}</p>
+  <p>Anzahl Karten pro Farbe: <b>{{cardsPerType}}</b> (<b>{{totalCards}}</b> insgesamt)</p>
+
+  <h2>Punkteverteilung</h2>
+  <p>Insgesamt <b>{{totalPoints}}</b> zu vergeben.</p>
+  <p ng-if="restPoints != 0">Es muessen noch <b>{{restPoints()}}</b> Punkte vergeben werden.</p>
+
+  <ul>
+    <li ng-repeat="point in points">
+      {{$index+1}}. Platz: <input type="number" ng-model="point.points">
+    </li>
+  </ul>
+
+  <div ng-repeat="game in games">
+    <h1>Spiel {{$index+1}}</h1>
+
+    <table>
+      <theader>
+        <tr>
+          <td>Runde</td>
+          <td ng-repeat="player in players">{{player}}</td>
+        </tr>
+      </theader>
+      <tbody>
+        <tr ng-repeat="round in rounds">
+          <td>{{round.name}}</td>
+          <td ng-repeat="player in players">X</td>
+        </tr>
+      </tbody>
+      <tfooter>
+        <tr>
+          <td>Punkte</td>
+          <td ng-repeat="player in players">X</td>
+        </tr>
+      </tfooter>
+    </table>
+  </div>
 
   <button type="button" class="btn btn-primary" ng-click="addGame()">+ Spiel</button>
 </div>
