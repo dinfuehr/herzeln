@@ -5,7 +5,13 @@ gameApp.factory( 'playerService', function( ) {
   var players = [];
 
   if( window.localStorage ) {
-    var tmp = JSON.parse( window.localStorage.players );
+    var tmp = [];
+
+    try {
+      tmp = JSON.parse( window.localStorage.players );
+    } catch( e ) {
+      tmp = [];
+    }
 
     if( angular.isArray( tmp ) ) {
       players = tmp;
